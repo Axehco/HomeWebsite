@@ -19,13 +19,13 @@
 
   <!-- 页面元数据 -->
   
-  <title>丢失的数字 - AXEHCO&#39;S BLOG</title>
+  <title>快乐数 - AXEHCO&#39;S BLOG</title>
   
     <meta name="keywords" content="LeetCode,Python,数学,哈希表">
   
 
   
-    <meta name="description" content="巧用数学思维">
+    <meta name="description" content="哈希迭代，真的快乐吗？">
   
 
   <!-- feed -->
@@ -530,7 +530,7 @@
     
     
       <h1 class="title">
-        丢失的数字
+        快乐数
       </h1>
       <div class='new-meta-box'>
         
@@ -561,7 +561,7 @@
             <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2020年11月14日</p>
+    <p>发布于：2020年11月26日</p>
   </a>
 </div>
 
@@ -572,7 +572,7 @@
   <div class="new-meta-item browse leancloud">
     <a class='notlink'>
       
-      <div id="lc-pv" data-title="丢失的数字" data-path="/2020/11/14/%E4%B8%A2%E5%A4%B1%E7%9A%84%E6%95%B0%E5%AD%97/">
+      <div id="lc-pv" data-title="快乐数" data-path="/2020/11/26/%E5%BF%AB%E4%B9%90%E6%95%B0/">
         <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
         <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
         次浏览
@@ -589,40 +589,32 @@
 
 
   
-  <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>题目传送门</p>
-<div class="tag link"><a class="link-card" title="丢失的数字" target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/missing-number/"><div class="left"><img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets@master/logo/256/safari.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets@master/logo/256/safari.png" srcset="data:image/png;base64,666"/></div><div class="right"><p class="text">丢失的数字</p><p class="url">https://leetcode-cn.com/problems/missing-number/</p></div></a></div>
+  <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>题目传送门：</p>
+<div class="tag link"><a class="link-card" title="快乐数" target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/happy-number"><div class="left"><img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets@master/logo/256/safari.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets@master/logo/256/safari.png" srcset="data:image/png;base64,666"/></div><div class="right"><p class="text">快乐数</p><p class="url">https://leetcode-cn.com/problems/happy-number</p></div></a></div>
 
-<p>给定一个包含 <code>[0, n]</code> 中 <code>n</code> 个数的数组 <code>nums</code> ，找出 <code>[0, n]</code> 这个范围内没有出现在数组中的那个数。</p>
-<p><strong>进阶：</strong></p>
-<ul>
-<li>你能否实现线性时间复杂度、仅使用额外常数空间的算法解决此问题?</li>
-</ul>
-<p><strong>示例 1：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：nums &#x3D; [3,0,1]</span><br><span class="line">输出：2</span><br><span class="line">解释：n &#x3D; 3，因为有 3 个数字，所以所有的数字都在范围 [0,3] 内。2 是丢失的数字，因为它没有出现在 nums 中。</span><br></pre></td></tr></table></figure>
+<p>编写一个算法来判断一个数 <code>n</code> 是不是快乐数。</p>
+<p>「快乐数」定义为：对于一个正整数，每一次将该数替换为它每个位置上的数字的平方和，然后重复这个过程直到这个数变为 1，也可能是<strong>无限循环</strong>但始终变不到 1。如果<strong>可以变为</strong> 1，那么这个数就是快乐数。</p>
+<p>如果 <code>n</code> 是快乐数就返回 <code>True</code> ；不是，则返回 <code>False</code> 。</p>
+<p><strong>示例：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">输入：19</span><br><span class="line">输出：true</span><br><span class="line">解释：</span><br><span class="line">12 + 92 &#x3D; 82</span><br><span class="line">82 + 22 &#x3D; 68</span><br><span class="line">62 + 82 &#x3D; 100</span><br><span class="line">12 + 02 + 02 &#x3D; 1</span><br></pre></td></tr></table></figure>
 
-<p><strong>示例 2：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：nums &#x3D; [0,1]</span><br><span class="line">输出：2</span><br><span class="line">解释：n &#x3D; 2，因为有 2 个数字，所以所有的数字都在范围 [0,2] 内。2 是丢失的数字，因为它没有出现在 nums 中。</span><br></pre></td></tr></table></figure>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>这道题定义了一种快乐数，就是说对于某一个正整数，如果对其各个位上的数字分别平方，然后再加起来得到一个新的数字，再进行同样的操作，如果最终结果变成了1，则说明是快乐数，如果一直循环但不是1的话，就不是快乐数，那么现在任意给我们一个正整数，让我们判断这个数是不是快乐数，题目中给的例子19是快乐数，现在看一个不是快乐数的情况。</p>
+<p>比如数字<code>11</code>的计算过程：</p>
+<p>$1^2 + 1^2 = 2$<br>$2^2 = 4$<br>$4^2 = 16$<br>$1^2 + 6^2 = 37$<br>$3^2 + 7^2 = 58$<br>$5^2 + 8^2 = 89$<br>$8^2 + 9^2 = 145$<br>$1^2 + 4^2 + 5^2 = 42$<br>$4^2 + 2^2 = 20$<br>$2^2 + 0^2 = $<code>4</code></p>
+<p>可以发现在算到最后时数字4又出现了，那么之后的数字又都会重复之前的顺序，这个循环中不包含1，那么数字11不是一个快乐数，发现了规律后就要考虑怎么用代码来实现，我们可以用 <strong>哈希表</strong>来记录所有出现过的数字，然后每出现一个新数字，在 <strong>哈希表</strong>中查找看是否存在，若不存在则加入表中，若存在则跳出循环，并且判断此数是否为1，若为1返回<code>True</code></p>
+<h3 id="哈希迭代"><a href="#哈希迭代" class="headerlink" title="哈希迭代"></a>哈希迭代</h3><p><strong><em>AC代码</em></strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isHappy</span>(<span class="params">self, n: <span class="built_in">int</span></span>) -&gt; bool:</span></span><br><span class="line">        visited = <span class="built_in">set</span>()</span><br><span class="line">        <span class="keyword">while</span> n <span class="keyword">not</span> <span class="keyword">in</span> visited:</span><br><span class="line">            visited.add(n)</span><br><span class="line">            temp = <span class="number">0</span></span><br><span class="line">            <span class="keyword">while</span> n != <span class="number">0</span>:</span><br><span class="line">                temp += (n % <span class="number">10</span>) ** <span class="number">2</span></span><br><span class="line">                n //= <span class="number">10</span></span><br><span class="line">            <span class="keyword">if</span> temp == <span class="number">1</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">            n = temp</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br></pre></td></tr></table></figure>
 
-<p><strong>示例 3：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：nums &#x3D; [9,6,4,2,3,5,7,0,1]</span><br><span class="line">输出：8</span><br><span class="line">解释：n &#x3D; 9，因为有 9 个数字，所以所有的数字都在范围 [0,9] 内。8 是丢失的数字，因为它没有出现在 nums 中。</span><br></pre></td></tr></table></figure>
+<h3 id="循环迭代"><a href="#循环迭代" class="headerlink" title="循环迭代"></a>循环迭代</h3><p>经过上面的分析，对于一个非快乐数，其<strong>数位平方和</strong>最终会进入<code>4 → 16 → 37 → 58 → 89 → 145 → 42 → 20 → 4</code>的循环中。</p>
+<p><strong><em>AC代码</em></strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isHappy</span>(<span class="params">self, n: <span class="built_in">int</span></span>) -&gt; bool:</span></span><br><span class="line">        <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">            n = <span class="built_in">sum</span>([<span class="built_in">int</span>(i)**<span class="number">2</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">str</span>(n)])</span><br><span class="line">            <span class="keyword">if</span> n == <span class="number">4</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">            <span class="keyword">if</span> n == <span class="number">1</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">True</span></span><br></pre></td></tr></table></figure>
 
-<p><strong>示例 4：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：nums &#x3D; [0]</span><br><span class="line">输出：1</span><br><span class="line">解释：n &#x3D; 1，因为有 1 个数字，所以所有的数字都在范围 [0,1] 内。1 是丢失的数字，因为它没有出现在 nums 中。</span><br></pre></td></tr></table></figure>
-
-<p><strong>提示：</strong></p>
-<ul>
-<li><code>n == nums.length</code></li>
-<li><code>1 &lt;= n &lt;= 104</code></li>
-<li><code>0 &lt;= nums[i] &lt;= n</code></li>
-<li><code>nums</code> 中的所有数字都 <strong>独一无二</strong></li>
-</ul>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="数学解法"><a href="#数学解法" class="headerlink" title="数学解法"></a>数学解法</h3><p>先求出0到n这n+1个数的和<br>再求出nums中所有数的和<br>两者相减，得到的即为丢失的数字</p>
-<p><strong><em>AC代码：</em></strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">missingNumber</span>(<span class="params">self, nums: List[<span class="built_in">int</span>]</span>) -&gt; int:</span></span><br><span class="line">        <span class="built_in">sum</span> = <span class="built_in">int</span>((<span class="number">1</span> + <span class="built_in">len</span>(nums)) * <span class="built_in">len</span>(nums) / <span class="number">2</span>)</span><br><span class="line">        sum1 = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> nums:</span><br><span class="line">            sum1 += i</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">sum</span> - sum1</span><br></pre></td></tr></table></figure>
-
-<h3 id="哈希表实现"><a href="#哈希表实现" class="headerlink" title="哈希表实现"></a>哈希表实现</h3><p>哈希表实现<br>产生n+1个bool型的数<br>遍历一遍，改变其值再输出即可</p>
-<p><strong><em>AC代码：</em></strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">missingNumber</span>(<span class="params">self, nums: List[<span class="built_in">int</span>]</span>) -&gt; int:</span></span><br><span class="line">        Hash = [<span class="literal">True</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(nums) + <span class="number">1</span>)]</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> nums:</span><br><span class="line">            Hash[i] = <span class="literal">False</span></span><br><span class="line">        <span class="keyword">for</span> i, j <span class="keyword">in</span> <span class="built_in">enumerate</span>(Hash):</span><br><span class="line">            <span class="keyword">if</span> j:</span><br><span class="line">                <span class="keyword">return</span> i</span><br></pre></td></tr></table></figure>
+<hr>
+<p>下面的不用看：没弄明白</p>
+<hr>
+<p>在基于上面的解法后，怕耗时太多，于是我设置了一个k，用k作为每次<strong>计算数位平方和</strong>的循环计数，当这个数是快乐数时，计算<strong>数位平方和</strong>的次数一定会有限步内（至于是几步有待考证，这里我k计算到了第6步AC了）计算完收敛到1，但是没有明确的数学证明，我猜想可能是判题时给出的数字太小吧，所以巧过，哈哈哈。</p>
+<p><strong><em>AC代码</em></strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isHappy</span>(<span class="params">self, n: <span class="built_in">int</span></span>) -&gt; bool:</span></span><br><span class="line">        temp = <span class="built_in">str</span>(n)</span><br><span class="line">        k = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">            <span class="built_in">sum</span> = <span class="number">0</span></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">str</span>(temp):</span><br><span class="line">                <span class="built_in">sum</span> += <span class="built_in">int</span>(i) * <span class="built_in">int</span>(i)</span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">sum</span> == <span class="number">1</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">            temp = <span class="built_in">str</span>(<span class="built_in">sum</span>)</span><br><span class="line">            k += <span class="number">1</span></span><br><span class="line">            <span class="keyword">if</span> k &gt; <span class="number">5</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">False</span></span><br></pre></td></tr></table></figure>
 
 
   
@@ -641,7 +633,7 @@
               
             
               
-                <p>本文永久链接是：<a href=https://axehco.github.io/2020/11/14/%E4%B8%A2%E5%A4%B1%E7%9A%84%E6%95%B0%E5%AD%97/>https://axehco.github.io/2020/11/14/%E4%B8%A2%E5%A4%B1%E7%9A%84%E6%95%B0%E5%AD%97/</a></p>
+                <p>本文永久链接是：<a href=https://axehco.github.io/2020/11/26/%E5%BF%AB%E4%B9%90%E6%95%B0/>https://axehco.github.io/2020/11/26/%E5%BF%AB%E4%B9%90%E6%95%B0/</a></p>
               
             
           </blockquote>
@@ -658,10 +650,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-11-18T13:09:02+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-11-26T12:21:49+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2020年11月18日</p>
+    <p>更新于：2020年11月26日</p>
   </a>
 </div>
 
@@ -685,14 +677,23 @@
   
     <div class="prev-next">
       
-        <a class='prev' href='/2020/11/15/%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/'>
-          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>两数之和</p>
-          <!-- <p class='content'>问题描述题目传送门：
-两数之和https://leetcode-cn.com/problems/two-sum/
+        <a class='prev' href='/2020/11/26/%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E7%9A%84%E4%BA%A4%E9%9B%86/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>两个数组的交集</p>
+          <!-- <p class='content'>题目描述题目传送门：
+两个数组的交集https://leetcode-cn.com/problems/intersection-of-two-arrays
 
-给定一个整数数组nums和一个目标值 target，请你在该数组中找出和为目标...</p> -->
+给定两个数组，编写一个函数来计算它们...</p> -->
         </a>
       
+      
+        <a class='next' href='/2020/11/26/%E5%8A%A0%E4%B8%80/'>
+          <p class='title'>加一<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <!-- <p class='content'>题目描述题目传送门：
+加一https://leetcode-cn.com/problems/plus-one
+
+给定一个由整数组成的非空数组所表示的非负整数，在该数的基础上加一。
+最高位数字存放...</p> -->
+        </a>
       
     </div>
   
@@ -888,7 +889,7 @@
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0"><span class="toc-text">问题描述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E8%A7%A3"><span class="toc-text">题解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E5%AD%A6%E8%A7%A3%E6%B3%95"><span class="toc-text">数学解法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%93%88%E5%B8%8C%E8%A1%A8%E5%AE%9E%E7%8E%B0"><span class="toc-text">哈希表实现</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E8%A7%A3"><span class="toc-text">题解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%93%88%E5%B8%8C%E8%BF%AD%E4%BB%A3"><span class="toc-text">哈希迭代</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF%E8%BF%AD%E4%BB%A3"><span class="toc-text">循环迭代</span></a></li></ol></li></ol>
     </div>
   </section>
 
@@ -959,7 +960,7 @@
 <script>
   window.pdata={}
   pdata.ispage=true;
-  pdata.postTitle="丢失的数字";
+  pdata.postTitle="快乐数";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
 

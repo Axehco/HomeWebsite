@@ -19,13 +19,13 @@
 
   <!-- 页面元数据 -->
   
-  <title>丢失的数字 - AXEHCO&#39;S BLOG</title>
+  <title>独一无二的出现次数 - AXEHCO&#39;S BLOG</title>
   
-    <meta name="keywords" content="LeetCode,Python,数学,哈希表">
+    <meta name="keywords" content="LeetCode,Python,哈希表,数组,集合,暴力">
   
 
   
-    <meta name="description" content="巧用数学思维">
+    <meta name="description" content="集合的去重你还能想起吗？">
   
 
   <!-- feed -->
@@ -530,7 +530,7 @@
     
     
       <h1 class="title">
-        丢失的数字
+        独一无二的出现次数
       </h1>
       <div class='new-meta-box'>
         
@@ -561,7 +561,7 @@
             <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2020年11月14日</p>
+    <p>发布于：2020年11月26日</p>
   </a>
 </div>
 
@@ -572,7 +572,7 @@
   <div class="new-meta-item browse leancloud">
     <a class='notlink'>
       
-      <div id="lc-pv" data-title="丢失的数字" data-path="/2020/11/14/%E4%B8%A2%E5%A4%B1%E7%9A%84%E6%95%B0%E5%AD%97/">
+      <div id="lc-pv" data-title="独一无二的出现次数" data-path="/2020/11/26/%E7%8B%AC%E4%B8%80%E6%97%A0%E4%BA%8C%E7%9A%84%E5%87%BA%E7%8E%B0%E6%AC%A1%E6%95%B0/">
         <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
         <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
         次浏览
@@ -589,40 +589,45 @@
 
 
   
-  <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>题目传送门</p>
-<div class="tag link"><a class="link-card" title="丢失的数字" target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/missing-number/"><div class="left"><img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets@master/logo/256/safari.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets@master/logo/256/safari.png" srcset="data:image/png;base64,666"/></div><div class="right"><p class="text">丢失的数字</p><p class="url">https://leetcode-cn.com/problems/missing-number/</p></div></a></div>
+  <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>题目传送门：</p>
+<div class="tag link"><a class="link-card" title="独一无二的出现次数" target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/unique-number-of-occurrences/"><div class="left"><img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets@master/logo/256/safari.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets@master/logo/256/safari.png" srcset="data:image/png;base64,666"/></div><div class="right"><p class="text">独一无二的出现次数</p><p class="url">https://leetcode-cn.com/problems/unique-number-of-occurrences/</p></div></a></div>
 
-<p>给定一个包含 <code>[0, n]</code> 中 <code>n</code> 个数的数组 <code>nums</code> ，找出 <code>[0, n]</code> 这个范围内没有出现在数组中的那个数。</p>
-<p><strong>进阶：</strong></p>
-<ul>
-<li>你能否实现线性时间复杂度、仅使用额外常数空间的算法解决此问题?</li>
-</ul>
-<p><strong>示例 1：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：nums &#x3D; [3,0,1]</span><br><span class="line">输出：2</span><br><span class="line">解释：n &#x3D; 3，因为有 3 个数字，所以所有的数字都在范围 [0,3] 内。2 是丢失的数字，因为它没有出现在 nums 中。</span><br></pre></td></tr></table></figure>
+<p>给你一个整数数组 <code>arr</code>，请你帮忙统计数组中每个数的出现次数。</p>
+<p>如果每个数的出现次数都是独一无二的，就返回 <code>true</code>；否则返回 <code>false</code>。</p>
+<p> <strong>示例 1：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：arr &#x3D; [1,2,2,1,1,3]</span><br><span class="line">输出：true</span><br><span class="line">解释：在该数组中，1 出现了 3 次，2 出现了 2 次，3 只出现了 1 次。没有两个数的出现次数相同。</span><br></pre></td></tr></table></figure>
 
 <p><strong>示例 2：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：nums &#x3D; [0,1]</span><br><span class="line">输出：2</span><br><span class="line">解释：n &#x3D; 2，因为有 2 个数字，所以所有的数字都在范围 [0,2] 内。2 是丢失的数字，因为它没有出现在 nums 中。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：arr &#x3D; [1,2]</span><br><span class="line">输出：false</span><br></pre></td></tr></table></figure>
 
 <p><strong>示例 3：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：nums &#x3D; [9,6,4,2,3,5,7,0,1]</span><br><span class="line">输出：8</span><br><span class="line">解释：n &#x3D; 9，因为有 9 个数字，所以所有的数字都在范围 [0,9] 内。8 是丢失的数字，因为它没有出现在 nums 中。</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 4：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：nums &#x3D; [0]</span><br><span class="line">输出：1</span><br><span class="line">解释：n &#x3D; 1，因为有 1 个数字，所以所有的数字都在范围 [0,1] 内。1 是丢失的数字，因为它没有出现在 nums 中。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：arr &#x3D; [-3,0,1,-3,1,1,1,-3,10,0]</span><br><span class="line">输出：true</span><br></pre></td></tr></table></figure>
 
 <p><strong>提示：</strong></p>
 <ul>
-<li><code>n == nums.length</code></li>
-<li><code>1 &lt;= n &lt;= 104</code></li>
-<li><code>0 &lt;= nums[i] &lt;= n</code></li>
-<li><code>nums</code> 中的所有数字都 <strong>独一无二</strong></li>
+<li><code>1 &lt;= arr.length &lt;= 1000</code></li>
+<li><code>-1000 &lt;= arr[i] &lt;= 1000</code></li>
 </ul>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="数学解法"><a href="#数学解法" class="headerlink" title="数学解法"></a>数学解法</h3><p>先求出0到n这n+1个数的和<br>再求出nums中所有数的和<br>两者相减，得到的即为丢失的数字</p>
-<p><strong><em>AC代码：</em></strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">missingNumber</span>(<span class="params">self, nums: List[<span class="built_in">int</span>]</span>) -&gt; int:</span></span><br><span class="line">        <span class="built_in">sum</span> = <span class="built_in">int</span>((<span class="number">1</span> + <span class="built_in">len</span>(nums)) * <span class="built_in">len</span>(nums) / <span class="number">2</span>)</span><br><span class="line">        sum1 = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> nums:</span><br><span class="line">            sum1 += i</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">sum</span> - sum1</span><br></pre></td></tr></table></figure>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="暴力实现"><a href="#暴力实现" class="headerlink" title="暴力实现"></a>暴力实现</h3><p>建立一个范围为<code>-1000到1000</code>的数组<code>hash</code>，遍历<code>arr</code>，对<code>arr</code>的元素计数，在遍历一遍<code>hash</code>，找是否存在相同的两个不为<code>0</code>的数即可。</p>
+<p><strong><em>AC代码</em></strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">uniqueOccurrences</span>(<span class="params">self, arr: List[<span class="built_in">int</span>]</span>) -&gt; bool:</span></span><br><span class="line">        <span class="built_in">hash</span> = [<span class="number">0</span>] * <span class="number">2005</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> arr:</span><br><span class="line">            <span class="built_in">hash</span>[i] += <span class="number">1</span></span><br><span class="line">        <span class="keyword">for</span> i, j <span class="keyword">in</span> <span class="built_in">enumerate</span>(<span class="built_in">hash</span>):</span><br><span class="line">            <span class="keyword">for</span> m, n <span class="keyword">in</span> <span class="built_in">enumerate</span>(<span class="built_in">hash</span>):</span><br><span class="line">                <span class="keyword">if</span> m != i <span class="keyword">and</span> j == n <span class="keyword">and</span> n != <span class="number">0</span>:</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="哈希表实现"><a href="#哈希表实现" class="headerlink" title="哈希表实现"></a>哈希表实现</h3><p>哈希表实现<br>产生n+1个bool型的数<br>遍历一遍，改变其值再输出即可</p>
-<p><strong><em>AC代码：</em></strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">missingNumber</span>(<span class="params">self, nums: List[<span class="built_in">int</span>]</span>) -&gt; int:</span></span><br><span class="line">        Hash = [<span class="literal">True</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(nums) + <span class="number">1</span>)]</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> nums:</span><br><span class="line">            Hash[i] = <span class="literal">False</span></span><br><span class="line">        <span class="keyword">for</span> i, j <span class="keyword">in</span> <span class="built_in">enumerate</span>(Hash):</span><br><span class="line">            <span class="keyword">if</span> j:</span><br><span class="line">                <span class="keyword">return</span> i</span><br></pre></td></tr></table></figure>
+<p>用此这种势必会消耗大量的<code>时间</code>和<code>空间</code>了</p>
+<p>下面采用另外一种方式</p>
+<h3 id="排序-集合"><a href="#排序-集合" class="headerlink" title="排序+集合"></a>排序+集合</h3><p>先排序数组，然后扫描每一个元素的出现次数并加入<code>set</code>，发现重复次数时返回<code>false</code>，遍历结束后返回<code>true</code>。</p>
+<p><strong><em>AC代码</em></strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">uniqueOccurrences</span>(<span class="params">self, arr: List[<span class="built_in">int</span>]</span>) -&gt; bool:</span></span><br><span class="line">        count = [<span class="number">0</span>] * <span class="number">2005</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> arr:</span><br><span class="line">            count[i] += <span class="number">1</span></span><br><span class="line">        count.sort(reverse = <span class="literal">True</span>)</span><br><span class="line">        set1 = <span class="built_in">set</span>()</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> count:</span><br><span class="line">            <span class="keyword">if</span> i == <span class="number">0</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">if</span> i <span class="keyword">in</span> set1:</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    set1.add(i)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br></pre></td></tr></table></figure>
+
+<p>你还记得<strong>集合</strong>的去重功能吗？还可以这样解：</p>
+<p>先计算每个数出现的次数，放在<code>数组hash</code>中，再遍历<code>hash</code>中的数放入<code>集合set</code>中，由于集合的去重性，只需判断<code>hash</code>和<code>set</code>的长度即可。</p>
+<p><strong><em>AC代码</em></strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">uniqueOccurrences</span>(<span class="params">self, arr: List[<span class="built_in">int</span>]</span>) -&gt; bool:</span></span><br><span class="line">        count = [<span class="number">0</span>] * <span class="number">2005</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> arr:</span><br><span class="line">            count[i] += <span class="number">1</span></span><br><span class="line">        cnt = <span class="number">0</span>  <span class="comment"># 记录数组的长度，为0的元素不算在内</span></span><br><span class="line">        set1 = <span class="built_in">set</span>()</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> count:</span><br><span class="line">            <span class="keyword">if</span> i == <span class="number">0</span>:</span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line">            cnt += <span class="number">1</span></span><br><span class="line">            set1.add(i)</span><br><span class="line">        <span class="keyword">if</span> cnt == <span class="built_in">len</span>(set1):</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br></pre></td></tr></table></figure>
+
+<p>另一种写法：</p>
+<p><code>collections.Counter(arr)是python中的计数函数</code>，不容易记住，所以不推荐使用啦</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">uniqueOccurrences</span>(<span class="params">self, arr: List[<span class="built_in">int</span>]</span>) -&gt; bool:</span></span><br><span class="line">        collect = collections.Counter(arr)</span><br><span class="line">        lst = []</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> collect.values():</span><br><span class="line">            lst.append(i)</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(lst) == <span class="built_in">len</span>(<span class="built_in">set</span>(lst)):</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
 
 
   
@@ -641,7 +646,7 @@
               
             
               
-                <p>本文永久链接是：<a href=https://axehco.github.io/2020/11/14/%E4%B8%A2%E5%A4%B1%E7%9A%84%E6%95%B0%E5%AD%97/>https://axehco.github.io/2020/11/14/%E4%B8%A2%E5%A4%B1%E7%9A%84%E6%95%B0%E5%AD%97/</a></p>
+                <p>本文永久链接是：<a href=https://axehco.github.io/2020/11/26/%E7%8B%AC%E4%B8%80%E6%97%A0%E4%BA%8C%E7%9A%84%E5%87%BA%E7%8E%B0%E6%AC%A1%E6%95%B0/>https://axehco.github.io/2020/11/26/%E7%8B%AC%E4%B8%80%E6%97%A0%E4%BA%8C%E7%9A%84%E5%87%BA%E7%8E%B0%E6%AC%A1%E6%95%B0/</a></p>
               
             
           </blockquote>
@@ -658,10 +663,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-11-18T13:09:02+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-11-26T12:26:35+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2020年11月18日</p>
+    <p>更新于：2020年11月26日</p>
   </a>
 </div>
 
@@ -670,7 +675,7 @@
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/LeetCode/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>LeetCode</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Python/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Python</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E6%95%B0%E5%AD%A6/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>数学</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>哈希表</p></a></div>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/LeetCode/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>LeetCode</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Python/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Python</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>哈希表</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E6%95%B0%E7%BB%84/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>数组</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E9%9B%86%E5%90%88/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>集合</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E6%9A%B4%E5%8A%9B/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>暴力</p></a></div>
 
 
         
@@ -685,14 +690,14 @@
   
     <div class="prev-next">
       
-        <a class='prev' href='/2020/11/15/%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/'>
-          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>两数之和</p>
-          <!-- <p class='content'>问题描述题目传送门：
-两数之和https://leetcode-cn.com/problems/two-sum/
-
-给定一个整数数组nums和一个目标值 target，请你在该数组中找出和为目标...</p> -->
-        </a>
       
+        <a class='next' href='/2020/11/26/%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E7%9A%84%E4%BA%A4%E9%9B%86/'>
+          <p class='title'>两个数组的交集<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <!-- <p class='content'>题目描述题目传送门：
+两个数组的交集https://leetcode-cn.com/problems/intersection-of-two-arrays
+
+给定两个数组，编写一个函数来计算它们...</p> -->
+        </a>
       
     </div>
   
@@ -888,7 +893,7 @@
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0"><span class="toc-text">问题描述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E8%A7%A3"><span class="toc-text">题解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E5%AD%A6%E8%A7%A3%E6%B3%95"><span class="toc-text">数学解法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%93%88%E5%B8%8C%E8%A1%A8%E5%AE%9E%E7%8E%B0"><span class="toc-text">哈希表实现</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E8%A7%A3"><span class="toc-text">题解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9A%B4%E5%8A%9B%E5%AE%9E%E7%8E%B0"><span class="toc-text">暴力实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%92%E5%BA%8F-%E9%9B%86%E5%90%88"><span class="toc-text">排序+集合</span></a></li></ol></li></ol>
     </div>
   </section>
 
@@ -959,7 +964,7 @@
 <script>
   window.pdata={}
   pdata.ispage=true;
-  pdata.postTitle="丢失的数字";
+  pdata.postTitle="独一无二的出现次数";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
 
