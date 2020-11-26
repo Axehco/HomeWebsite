@@ -5,8 +5,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta http-equiv='x-dns-prefetch-control' content='on' />
@@ -21,9 +19,13 @@
 
   <!-- 页面元数据 -->
   
-  <title>标签：数组 - AXEHCO&#39;S BLOG</title>
+  <title>整数反转 - AXEHCO&#39;S BLOG</title>
+  
+    <meta name="keywords" content="LeetCode,Python,数学">
   
 
+  
+    <meta name="description" content="摘要">
   
 
   <!-- feed -->
@@ -56,7 +58,7 @@
 <body>
   
 
-<header id="l_header" class="l_header auto shadow blur show" style='opacity: 0' >
+<header id="l_header" class="l_header auto shadow blur " style='opacity: 0' >
   <div class='container'>
   <div id='wrapper'>
     <div class='nav-sub'>
@@ -443,7 +445,7 @@
     <div id="l_cover">
   
     
-        <div id="full" class='cover-wrapper  search' style="display: none;">
+        <div id="half" class='cover-wrapper post search' style="display: ;">
           
             <div class='cover-bg lazyload placeholder' data-bg="https://cdn.jsdelivr.net/gh/Axehco/CDNforBTlove@1.0/images/cover.webp"></div>
           
@@ -517,166 +519,240 @@
       <div class='body-wrapper' id="pjax-container">
         
 
-
 <div class='l_main'>
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
   
+
+
+  
+  <div class="article-meta" id="top">
     
-      
-  <section class="post-list">
     
-      
+    
+      <h1 class="title">
+        整数反转
+      </h1>
+      <div class='new-meta-box'>
         
+          
+            
+<div class='new-meta-item author'>
+  <a class='author' target="_blank" href="https://blog.csdn.net/Axehco" rel="nofollow noopener">
+    <img no-lazy src="https://cdn.jsdelivr.net/gh/Axehco/CDNforAxehco@1.0.0/about/icon/cnblogs.png">
+    <p>Axehco</p>
+  </a>
+</div>
+
           
         
           
-        
-          
-        
-      
-    
-    
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2020/11/26/%E7%8B%AC%E4%B8%80%E6%97%A0%E4%BA%8C%E7%9A%84%E5%87%BA%E7%8E%B0%E6%AC%A1%E6%95%B0/">
-        独一无二的出现次数
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      集合的去重你还能想起吗？
-    
+            
+  <div class='new-meta-item category'>
+    <a class='notlink'>
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <a class="category-link" href="/categories/LeetCode/">LeetCode</a>
+    </a>
   </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
+
+
+          
         
-        <time>2020-11-26</time>
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2020年11月26日</p>
+  </a>
+</div>
+
+          
         
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/LeetCode/">LeetCode</a>
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
+      
+      <div id="lc-pv" data-title="整数反转" data-path="/2020/11/26/%E6%95%B4%E6%95%B0%E5%8F%8D%E8%BD%AC/">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
+  </div>
+
+
+          
         
       </div>
+    
+  </div>
+
+
+  
+  <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>题目传送门：</p>
+<div class="tag link"><a class="link-card" title="整数反转" target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/reverse-integer/"><div class="left"><img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets@master/logo/256/safari.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets@master/logo/256/safari.png" srcset="data:image/png;base64,666"/></div><div class="right"><p class="text">整数反转</p><p class="url">https://leetcode-cn.com/problems/reverse-integer/</p></div></a></div>
+
+<p>给出一个<code> 32</code> 位的有符号整数，你需要将这个整数中每位上的数字进行反转。</p>
+<p><strong>示例 1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: 123</span><br><span class="line">输出: 321</span><br></pre></td></tr></table></figure>
+
+<p> <strong>示例 2:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: -123</span><br><span class="line">输出: -321</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 3:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: 120</span><br><span class="line">输出: 21</span><br></pre></td></tr></table></figure>
+
+<p>注意:</p>
+<p>假设我们的环境只能存储得下 32 位的有符号整数，则其数值范围为$[2^{31}, 2^{31}-1]$。请根据这个假设，如果反转后整数溢出那么就返回 0。</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h3 id="关键点"><a href="#关键点" class="headerlink" title="关键点"></a>关键点</h3><ul>
+<li><p>判断整数的正负</p>
+</li>
+<li><p>判断反转后的整数是否溢出</p>
+</li>
+</ul>
+<p><strong><em>AC代码：</em></strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">reverse</span>(<span class="params">self, x: <span class="built_in">int</span></span>) -&gt; int:</span></span><br><span class="line">        flag = <span class="literal">True</span>  <span class="comment"># 标记正负数</span></span><br><span class="line">        <span class="keyword">if</span> x &lt; <span class="number">0</span>:</span><br><span class="line">            flag = <span class="literal">False</span></span><br><span class="line">            x = -x  <span class="comment"># 是负数，就转换为正数</span></span><br><span class="line">        x = <span class="built_in">str</span>(x)[::<span class="number">-1</span>]  <span class="comment"># 字符串反转x</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> flag:</span><br><span class="line">            x = -<span class="built_in">int</span>(x)</span><br><span class="line">        x = <span class="built_in">int</span>(x)</span><br><span class="line">        <span class="keyword">return</span> x <span class="keyword">if</span> <span class="number">-1</span> * <span class="built_in">pow</span>(<span class="number">2</span>, <span class="number">31</span>) &lt;= x &lt;= <span class="built_in">pow</span>(<span class="number">2</span>, <span class="number">31</span>) - <span class="number">1</span> <span class="keyword">else</span> <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+
+  
+  
+    
+    <div class='footer'>
       
-        <div>
-          <a class='readmore' href='/2020/11/26/%E7%8B%AC%E4%B8%80%E6%97%A0%E4%BA%8C%E7%9A%84%E5%87%BA%E7%8E%B0%E6%AC%A1%E6%95%B0/'>
-            阅读全文
-          </a>
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=https://axehco.github.io/2020/11/26/%E6%95%B4%E6%95%B0%E5%8F%8D%E8%BD%AC/>https://axehco.github.io/2020/11/26/%E6%95%B4%E6%95%B0%E5%8F%8D%E8%BD%AC/</a></p>
+              
+            
+          </blockquote>
         </div>
+      
+      
+    </div>
+  
+  
+    
+
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-11-26T13:52:57+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2020年11月26日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/LeetCode/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>LeetCode</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Python/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Python</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E6%95%B0%E5%AD%A6/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>数学</p></a></div>
+
+
+        
+      
+    </div>
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+        <a class='prev' href='/2020/11/26/%E6%9C%89%E6%95%88%E7%9A%84%E5%AD%97%E6%AF%8D%E5%BC%82%E4%BD%8D%E8%AF%8D/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>有效的字母异位词</p>
+          <!-- <p class='content'>题目描述题目传送门：
+有效的字母异位词https://leetcode-cn.com/problems/valid-anagram/
+
+给定两个字符串 s 和 t ，编写一个函数来判断 t 是否...</p> -->
+        </a>
+      
+      
+        <a class='next' href='/2020/11/26/%E6%9C%80%E5%90%8E%E4%B8%80%E4%B8%AA%E5%8D%95%E8%AF%8D%E7%9A%84%E9%95%BF%E5%BA%A6/'>
+          <p class='title'>最后一个单词的长度<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <!-- <p class='content'>题目描述题目传送门：
+最后一个单词的长度https://leetcode-cn.com/problems/length-of-last-word/
+
+给定一个仅包含大小写字母和空格 &#39; ...</p> -->
+        </a>
       
     </div>
   
 
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2020/11/26/%E5%8A%A0%E4%B8%80/">
-        加一
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      简单的数组操作题
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-11-26</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/LeetCode/">LeetCode</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2020/11/26/%E5%8A%A0%E4%B8%80/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2020/11/15/%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/">
-        两数之和
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      哈希表的应用
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-11-15</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/LeetCode/">LeetCode</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2020/11/15/%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-    
-  </section>
-  
-    
-  
+</article>
 
 
-    
-  
+
+
+  <script>
+  // https://github.com/theme-next/hexo-theme-next/blob/master/layout/_third-party/math/mathjax.swig
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.0/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    // 文章章节标题不能为 “MathJax” ，否则会报错。
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+
+
 </div>
 <aside class='l_side'>
   
@@ -799,6 +875,20 @@
 
 
 
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E8%A7%A3"><span class="toc-text">题解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E7%82%B9"><span class="toc-text">关键点</span></a></li></ol></li></ol>
+    </div>
+  </section>
+
 
   
 
@@ -857,6 +947,7 @@
 </aside>
 
 
+
         
         
           <!--此文件用来存放一些不方便取值的变量-->
@@ -864,14 +955,14 @@
 
 <script>
   window.pdata={}
-  pdata.ispage=false;
-  pdata.postTitle="";
+  pdata.ispage=true;
+  pdata.postTitle="整数反转";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
 
   var l_header=document.getElementById("l_header");
   
-  l_header.classList.add("show");
+  l_header.classList.remove("show");
   
 </script>
 
