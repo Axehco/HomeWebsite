@@ -1371,13 +1371,13 @@ p.p.h2 {
 }
 span.p.h1,
 p.p.h1 {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   color: var(--color-h1);
   padding-top: 2em;
 }
 span.p.h2,
 p.p.h2 {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   color: var(--color-h2);
   padding-top: 2em;
   border-bottom: 1px solid rgba(68,68,68,0.1);
@@ -3198,7 +3198,7 @@ footer.footer .copyright p {
   border-radius: 8px;
 }
 .l_main .post h1.title {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   margin: 0;
   border-bottom: none;
   padding-bottom: 4px;
@@ -4304,7 +4304,7 @@ img.lazyload:not(.placeholder).loaded {
   color: #fff;
 }
 .snackbar-content .title {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 600;
 }
 .snackbar-content .action {
