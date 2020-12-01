@@ -4896,12 +4896,12 @@ object-assign
     }
     , function(e, t) {
         e.exports = {
-            nick: "昵称",
-            mail: "邮箱",
-            link: "网址(http://)",
+            nick: "昵称(必填哟)",
+            mail: "邮箱(必填哟)",
+            link: "网址",
             nickFail: "昵称不能少于3个字符",
             mailFail: "请填写正确的邮件地址",
-            sofa: "来发评论吧~",
+            sofa: "发表您的意见吧~",
             submit: "提交",
             reply: "回复",
             cancelReply: "取消回复",

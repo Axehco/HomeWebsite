@@ -84,7 +84,7 @@ body {
   background-color: var(--color-site-body);
   text-rendering: optimizelegibility;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
-  line-height: 1.6;
+  line-height: 1.5;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
 }
@@ -107,16 +107,16 @@ body.modal-active {
   background: rgba(33,150,243,0.2);
 }
 h1 {
-  font-size: 1.25rem;
+  font-size: 1.75rem;
 }
 h2 {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
 }
 h3 {
   font-size: 1.25rem;
 }
 h4 {
-  font-size: 1.125rem;
+  font-size: 1rem;
 }
 h5 {
   font-size: 1rem;
@@ -1707,7 +1707,7 @@ ul.list-v >li>a:hover {
   white-space: normal;
   overflow: hidden;
   text-overflow: ellipsis;
-  font-size: 1.125rem;
+  font-size: 1rem;
 }
 #u-search .modal-body .modal-results .result .digest {
   display: block;
@@ -1903,6 +1903,19 @@ ul.list-v >li>a:hover {
   :root:not([data-user-color-scheme]) .aplayer.aplayer-withlist .aplayer-info {
     border-bottom: 1px solid var(--color-block);
   }
+  :root:not([data-user-color-scheme]) #valine_container button {
+    background-color: var(--color-block) !important;
+  }
+  :root:not([data-user-color-scheme]) #valine_container .vcards .vcontent.expand:before {
+    background: none !important;
+  }
+  :root:not([data-user-color-scheme]) #valine_container .vcards .vcontent.expand:after {
+    background: #393c40 !important;
+  }
+  :root:not([data-user-color-scheme]) .v[data-class=v] code,
+  :root:not([data-user-color-scheme]) .v[data-class=v] pre {
+    background-color: #332828 !important;
+  }
 }
 [data-user-color-scheme='dark'] {
   --color-site-body: #000;
@@ -2072,6 +2085,19 @@ ul.list-v >li>a:hover {
 }
 [data-user-color-scheme='dark'] .aplayer.aplayer-withlist .aplayer-info {
   border-bottom: 1px solid var(--color-block);
+}
+[data-user-color-scheme='dark'] #valine_container button {
+  background-color: var(--color-block) !important;
+}
+[data-user-color-scheme='dark'] #valine_container .vcards .vcontent.expand:before {
+  background: none !important;
+}
+[data-user-color-scheme='dark'] #valine_container .vcards .vcontent.expand:after {
+  background: #393c40 !important;
+}
+[data-user-color-scheme='dark'] .v[data-class=v] code,
+[data-user-color-scheme='dark'] .v[data-class=v] pre {
+  background-color: #332828 !important;
 }
 @media screen and (prefers-color-scheme: dark) and (max-width: 500px) {
   .l_header .m_search {
