@@ -5,10 +5,6 @@
   <!-- SEO相关 -->
   
     
-      
-        <meta name="robots" content="noindex,follow">
-      
-    
   
   <!-- 渲染优化 -->
   <meta http-equiv='x-dns-prefetch-control' content='on' />
@@ -23,9 +19,13 @@
 
   <!-- 页面元数据 -->
   
-  <title>AXEHCO&#39;S BLOG</title>
+  <title>实现strStr - AXEHCO&#39;S BLOG</title>
+  
+    <meta name="keywords" content="LeetCode,Python,字符串匹配">
   
 
+  
+    <meta name="description" content="Leetcode 简单 28">
   
 
   <!-- feed -->
@@ -60,7 +60,7 @@
 <body>
   
 
-<header id="l_header" class="l_header auto shadow blur show" style='opacity: 0' >
+<header id="l_header" class="l_header auto shadow blur " style='opacity: 0' >
   <div class='container'>
   <div id='wrapper'>
     <div class='nav-sub'>
@@ -583,7 +583,7 @@
     <div id="l_cover">
   
     
-        <div id="full" class='cover-wrapper  search' style="display: none;">
+        <div id="half" class='cover-wrapper post search' style="display: ;">
           
             <div class='cover-bg lazyload placeholder' data-bg=""></div>
           
@@ -654,338 +654,373 @@
 
 <div class='l_main'>
   
-  <section class="post-list">
-    
+<article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
+  
+
+
+  
+  <div class="article-meta" id="top">
     
       
+
+  
+    <meting-js
+      mini='true'
+      volume='0.7'
+      loop='all'
+      order='list'
+      server='netease'
+      type='song'
+      id='442300'>
+    </meting-js>
+  
+
+
+    
+    
+    
+      <h1 class="title">
+        实现strStr
+      </h1>
+      <div class='new-meta-box'>
         
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2020/11/26/%E6%9C%80%E5%90%8E%E4%B8%80%E4%B8%AA%E5%8D%95%E8%AF%8D%E7%9A%84%E9%95%BF%E5%BA%A6/">
-        最后一个单词的长度
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      Leetcode 简单 58
-    
+          
+            
+<div class='new-meta-item author'>
+  <a class='author' href="https://axehco.github.io/myindex.html" rel="nofollow">
+    <img no-lazy src="https://cdn.jsdelivr.net/gh/Axehco/CDNforAxehco@1.0.0/about/icon/cnblogs.png">
+    <p>钟波</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class='new-meta-item category'>
+    <a class='notlink'>
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <a class="category-link" href="/categories/LeetCode%E7%AE%80%E5%8D%95/">LeetCode简单</a>
+    </a>
   </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
+
+
+          
         
-        <time>2020-11-26</time>
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2021年10月1日</p>
+  </a>
+</div>
+
+          
         
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/LeetCode%E7%AE%80%E5%8D%95/">LeetCode简单</a>
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
+      
+      <div id="lc-pv" data-title="实现strStr" data-path="/2021/10/01/%E5%AE%9E%E7%8E%B0strStr/">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
+  </div>
+
+
+          
         
       </div>
+    
+  </div>
+
+
+  
+  <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>题目传送门：</p>
+<div class="tag link"><a class="link-card" title="实现strStr" target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/implement-strstr/"><div class="left"><img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets@master/logo/256/safari.png" class="lazyload placeholder" data-srcset="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets@master/logo/256/safari.png" srcset="https://cdn.jsdelivr.net/gh/Axehco/CDNforAxehco@1.0.9/images/loading.gif"/></div><div class="right"><p class="text">实现strStr</p><p class="url">https://leetcode-cn.com/problems/implement-strstr/</p></div></a></div>
+
+<p>实现 <a target="_blank" rel="noopener" href="https://baike.baidu.com/item/strstr/811469">strStr()</a> 函数。</p>
+<p>给你两个字符串 <strong>haystack</strong>和 <strong>needle</strong>，请你在 <strong>haystack</strong> 字符串中找出  <strong>needle</strong>字符串出现的第一个位置（下标从 0 开始）。如果不存在，则返回**-1**。</p>
+<p><strong>说明：</strong></p>
+<p>当 <code>needle</code> 是空字符串时，我们应当返回什么值呢？这是一个在面试中很好的问题。</p>
+<p>对于本题而言，当 <code>needle</code> 是空字符串时我们应当返回 0 。这与 C 语言的 <code>strstr</code> 以及 Java 的<code>indexOf()</code> 定义相符。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：haystack &#x3D; &quot;hello&quot;, needle &#x3D; &quot;ll&quot;</span><br><span class="line">输出：2</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：haystack &#x3D; &quot;aaaaa&quot;, needle &#x3D; &quot;bba&quot;</span><br><span class="line">输出：-1</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 3：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：haystack &#x3D; &quot;&quot;, needle &#x3D; &quot;&quot;</span><br><span class="line">输出：0</span><br></pre></td></tr></table></figure>
+
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>0 &lt;= haystack.length, needle.length &lt;= 5 * 10^4</code></li>
+<li><code>haystack</code> 和 <code>needle</code> 仅由小写英文字符组成</li>
+</ul>
+<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><ol>
+<li>先判断特殊情况：</li>
+</ol>
+<ul>
+<li>needle长度为0的直接返回0</li>
+<li>对于haystack字符串长度小于needle长度的，不存在匹配，直接返回-1</li>
+</ul>
+<ol start="2">
+<li><p>遍历一遍haystack，先找到needle中第一个相匹配的字符串，再在haystack中取出与needle相等长度的字符串进行匹配即可。这里注意一个知识点，是针对python字符串切片的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a &#x3D; &#39;12345&#39;</span><br><span class="line"></span><br><span class="line">a[1: 4]，从下标0开始，左闭右开得到 234</span><br><span class="line"></span><br><span class="line">a[1: 100]，此时也只能得到 2345    注意这一点！！！</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>所以说不用去判断得到相等字符后，haystack后面剩下的字符长度是否要大于needle的长度。</p>
+<p><strong><em>AC代码</em></strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">strStr</span>(<span class="params">self, haystack: <span class="built_in">str</span>, needle: <span class="built_in">str</span></span>) -&gt; int:</span></span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">len</span>(needle) == <span class="number">0</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">len</span>(haystack) &lt; <span class="built_in">len</span>(needle):</span><br><span class="line">                <span class="keyword">return</span> <span class="number">-1</span></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(haystack)):</span><br><span class="line">                <span class="keyword">if</span> haystack[i] == needle[<span class="number">0</span>]:</span><br><span class="line">                    <span class="keyword">if</span> haystack[i: i+<span class="built_in">len</span>(needle)] == needle:</span><br><span class="line">                        <span class="keyword">return</span> i</span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span></span><br></pre></td></tr></table></figure>
+
+
+  
+  
+    
+    <div class='footer'>
       
-        <div>
-          <a class='readmore' href='/2020/11/26/%E6%9C%80%E5%90%8E%E4%B8%80%E4%B8%AA%E5%8D%95%E8%AF%8D%E7%9A%84%E9%95%BF%E5%BA%A6/'>
-            阅读全文
-          </a>
-        </div>
+      
+      
       
     </div>
   
 
+  <hr />
+  
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Axehco/CDNforAxehco@1.0.9/css/donate.css"> -->
+<link rel="stylesheet" href="/css/donate.css">
+<div id="reward">
+  
+    <br><div style="text-align: center;">您的喜欢是作者写作最大的动力！❤️</div><br><br><br>
+  
+  <div class="reward">
+    <a href="https://github.com/Kaiyuan/donate-page" target="_blank" class=" tr3" title="Github"><span
+        id="github"></span></a>
+    <ul id="RewardBox" class="list pos-f tr3">
+      
+      <li id="PayPal" title="PayPal打赏"><a href="https://www.paypal.me/Axehco" target="_blank">PayPal</a></li>
+      
+      
+      <li id="AliPayOR" title="支付宝打赏">AliPay</li>
+      
+      
+      <li id="WeChatPayOR" title="微信打赏">WeChatPay</li>
+      
+      
+      <li id="QQPayOR" title="QQ打赏">QQPay</li>
+      
+    </ul>
+    <div id="RewardText" class="tr3">👍</div>
+    <div id="QRBox" class="pos-f left-100">
+      <div id="MainBox"></div>
+    </div>
+  </div>
+</div>
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+<script>
+  jQuery(document).ready(function () {
+    var QRBox = $('#QRBox');
+    var MainBox = $('#MainBox');
+    var AliPayOR = 'https://cdn.jsdelivr.net/gh/Axehco/CDNforAxehco@1.0.8/images/donate/AliPayQR.png';
+    var WeChatPayOR = 'https://cdn.jsdelivr.net/gh/Axehco/CDNforAxehco@1.0.8/images/donate/WeChanSQ.png';
+    var QQPayOR = 'https://cdn.jsdelivr.net/gh/Axehco/CDNforAxehco@1.0.8/images/donate/BTCQR.png';
+
+    function showQR(QR) {
+      if (QR) {
+        MainBox.css('background-image', 'url(' + QR + ')');
+      }
+      $('#RewardText,#RewardBox,#github').addClass('blur');
+      QRBox.fadeIn(300, function (argument) {
+        MainBox.addClass('showQR');
+      });
+    }
+
+    $('#RewardBox>li').click(function (event) {
+      var thisID = $(this).attr('id');
+      if (thisID === 'AliPayOR') {
+        showQR(AliPayOR);
+      } else if (thisID === 'WeChatPayOR') {
+        showQR(WeChatPayOR);
+      } else if (thisID === 'QQPayOR') {
+        showQR(QQPayOR);
+      }
+    });
+
+    MainBox.click(function (event) {
+      MainBox.removeClass('showQR').addClass('hideQR');
+      setTimeout(function (a) {
+        QRBox.fadeOut(300, function (argument) {
+          MainBox.removeClass('hideQR');
+        });
+        $('#RewardText,#RewardBox,#github').removeClass('blur');
+      }, 600);
+
+    });
+  });
+</script>
+
+  
+  <hr />
+
+  
+    
+
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-10-01T10:39:54+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2021年10月1日</p>
+  </a>
 </div>
 
-          </div>
         
       
         
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
+          
   
-  
-  
-  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/LeetCode/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>LeetCode</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Python/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Python</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>字符串匹配</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
     
-    <h2 class="article-title" >
-      <a href="/2020/11/26/%E7%8B%AC%E4%B8%80%E6%97%A0%E4%BA%8C%E7%9A%84%E5%87%BA%E7%8E%B0%E6%AC%A1%E6%95%B0/">
-        独一无二的出现次数
-      </a>
-    </h2>
-  
-  <div class='md'>
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://axehco.github.io/2021/10/01/%E5%AE%9E%E7%8E%B0strStr/&title=实现strStr - AXEHCO'S BLOG&summary=Leetcode 简单 28"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload placeholder" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="https://cdn.jsdelivr.net/gh/Axehco/CDNforAxehco@1.0.9/images/loading.gif">
+          
+        </a>
+      
     
-      Leetcode 简单 1207
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://axehco.github.io/2021/10/01/%E5%AE%9E%E7%8E%B0strStr/&title=实现strStr - AXEHCO'S BLOG&summary=Leetcode 简单 28"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload placeholder" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="https://cdn.jsdelivr.net/gh/Axehco/CDNforAxehco@1.0.9/images/loading.gif">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://axehco.github.io/2021/10/01/%E5%AE%9E%E7%8E%B0strStr/&title=实现strStr - AXEHCO'S BLOG&summary=Leetcode 简单 28"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload placeholder" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="https://cdn.jsdelivr.net/gh/Axehco/CDNforAxehco@1.0.9/images/loading.gif">
+          
+        </a>
+      
     
   </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
+</div>
+
+
+
         
-        <time>2020-11-26</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/LeetCode%E7%AE%80%E5%8D%95/">LeetCode简单</a>
-        
-      </div>
       
-        <div>
-          <a class='readmore' href='/2020/11/26/%E7%8B%AC%E4%B8%80%E6%97%A0%E4%BA%8C%E7%9A%84%E5%87%BA%E7%8E%B0%E6%AC%A1%E6%95%B0/'>
-            阅读全文
-          </a>
-        </div>
+    </div>
+  </div>
+
+
+  
+  
+  
+
+
+  
+    <div class="prev-next">
+      
+      
+        <a class='next' href='/2021/09/30/%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%B1%82%E5%92%8C/'>
+          <p class='title'>二进制求和<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <!-- <p class='content'>题目描述题目传送门：
+二进制求和https://leetcode-cn.com/problems/add-binary/
+
+给你两个二进制字符串，返回它们的和（用二进制表示）。
+输入为 非空 字...</p> -->
+        </a>
       
     </div>
   
 
-</div>
+</article>
 
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2020/11/26/%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E7%9A%84%E4%BA%A4%E9%9B%86/">
-        两个数组的交集
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      Leetcode 简单 349
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-11-26</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/LeetCode%E7%AE%80%E5%8D%95/">LeetCode简单</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2020/11/26/%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E7%9A%84%E4%BA%A4%E9%9B%86/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
 
-</div>
 
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2020/11/26/%E5%BF%AB%E4%B9%90%E6%95%B0/">
-        快乐数
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      Leetcode 简单 202
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-11-26</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/LeetCode%E7%AE%80%E5%8D%95/">LeetCode简单</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2020/11/26/%E5%BF%AB%E4%B9%90%E6%95%B0/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
 
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2020/11/26/%E5%8A%A0%E4%B8%80/">
-        加一
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      Leetcode 简单 66
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-11-26</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/LeetCode%E7%AE%80%E5%8D%95/">LeetCode简单</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2020/11/26/%E5%8A%A0%E4%B8%80/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2020/11/15/%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/">
-        两数之和
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      Leetcode 简单 1
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-11-15</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/LeetCode%E7%AE%80%E5%8D%95/">LeetCode简单</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2020/11/15/%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2020/11/14/%E4%B8%A2%E5%A4%B1%E7%9A%84%E6%95%B0%E5%AD%97/">
-        丢失的数字
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      Leetcode 简单 268
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-11-14</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/LeetCode%E7%AE%80%E5%8D%95/">LeetCode简单</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2020/11/14/%E4%B8%A2%E5%A4%B1%E7%9A%84%E6%95%B0%E5%AD%97/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-    
-  </section>
-  
-    
-      <br>
-      <div class="prev-next">
-        
-          <a class="prev" rel="prev" href="/">
-            <section class="post prev white-box shadow" >
-              <i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一页&nbsp;
-            </section>
-          </a>
-        
-        <p class="current">
-          2 / 2
-        </p>
-        
-      </div>
-    
-  
+  <script>
+  // https://github.com/theme-next/hexo-theme-next/blob/master/layout/_third-party/math/mathjax.swig
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.0/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    // 文章章节标题不能为 “MathJax” ，否则会报错。
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
 
 
 </div>
@@ -1101,6 +1136,20 @@
 
 
 
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="toc-text">题目描述</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%98%E8%A7%A3"><span class="toc-text">题解</span></a>
+    </div>
+  </section>
+
 
   
 
@@ -1160,129 +1209,6 @@
 
   
 
-  
-    
-    
-
-<section class="widget shadow desktop mobile">
-  
-  <header>
-    
-      <i class="fas fa-award fa-fw" aria-hidden="true"></i><span class='name'>站点信息</span>
-    
-  </header>
-
-
-  <div class='content'>
-    <div class="webinfo">
-      
-        <div class="webinfo-item">
-          <div>文章数目：</div>
-          <div>17 篇</div>
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>已运行时间：</div>
-          <div id="webinfo-runtime-count" publish_date="03/24/2020 21:34:09"></div>
-        </div>
-        <script>
-          var BirthDay = new Date(new Date('2020/11/11'));
-          var today = new Date();
-          var timeold = (today.getTime() - BirthDay.getTime());
-          var daysold = Math.floor(timeold / (24 * 60 * 60 * 1000));
-          document.getElementById('webinfo-runtime-count').innerHTML = daysold + ' 天';
-        </script>
-      
-
-
-      
-
-      
-        <div class="webinfo-item">
-          <div>本站访客数：</div>
-          
-          <div><span id="lc-uv"><span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span></span> 人</div>
-          
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>本站总访问量：</div>
-          
-          <div><span id="lc-sv"><span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span></span> 次</div>
-          
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>最后活动时间：</div>
-          
-            <div id="last-update" style="display: none;">Fri Oct 01 2021 10:40:06 GMT+0800 (GMT+08:00)</div>
-            <div id="last-update-show">2021-10-01 日</div>
-          
-        </div>
-        
-        <script>
-          function timeago(dateTimeStamp) {
-              var minute = 1000 * 60; //把分，时，天，周，半个月，一个月用毫秒表示
-              var hour = minute * 60;
-              var day = hour * 24;
-              var week = day * 7;
-              var month = day * 30;
-              var now = new Date().getTime(); //获取当前时间毫秒
-              var diffValue = now - dateTimeStamp; //时间差
-              if (diffValue < 0) {
-                  return;
-              }
-              var minC = diffValue / minute; //计算时间差的分，时，天，周，月
-              var hourC = diffValue / hour;
-              var dayC = diffValue / day;
-              var weekC = diffValue / week;
-              var monthC = diffValue / month;
-              if (monthC >= 1 && monthC <= 3) {
-                  result = " " + parseInt(monthC) + " 月前"
-              } else if (weekC >= 1 && weekC <= 3) {
-                  result = " " + parseInt(weekC) + " 周前"
-              } else if (dayC >= 1 && dayC <= 6) {
-                  result = " " + parseInt(dayC) + " 天前"
-              } else if (hourC >= 1 && hourC <= 23) {
-                  result = " " + parseInt(hourC) + " 小时前"
-              } else if (minC >= 1 && minC <= 59) {
-                  result = " " + parseInt(minC) + " 分钟前"
-              } else if (diffValue >= 0 && diffValue <= minute) {
-                  result = "刚刚"
-              } else {
-                  var datetime = new Date();
-                  datetime.setTime(dateTimeStamp);
-                  var Nyear = datetime.getFullYear();
-                  var Nmonth = datetime.getMonth() + 1 < 10 ? "0" + (datetime.getMonth() + 1) : datetime.getMonth() + 1;
-                  var Ndate = datetime.getDate() < 10 ? "0" + datetime.getDate() : datetime.getDate();
-                  var Nhour = datetime.getHours() < 10 ? "0" + datetime.getHours() : datetime.getHours();
-                  var Nminute = datetime.getMinutes() < 10 ? "0" + datetime.getMinutes() : datetime.getMinutes();
-                  var Nsecond = datetime.getSeconds() < 10 ? "0" + datetime.getSeconds() : datetime.getSeconds();
-                  result = Nyear + "-" + Nmonth + "-" + Ndate
-              }
-              return result;
-          }
-          var lastUpDate = document.getElementById('last-update').innerHTML;
-          try {
-            document.getElementById('last-update-show').innerHTML = timeago(new Date(lastUpDate));
-          } catch (error) {
-            document.getElementById('last-update-show').innerHTML = '2021-10-01 日';
-          }
-        </script>
-        
-      
-    </div>
-  </div>
-</section>
-
-  
-
 
 </aside>
 
@@ -1295,14 +1221,14 @@
 
 <script>
   window.pdata={}
-  pdata.ispage=false;
-  pdata.postTitle="";
+  pdata.ispage=true;
+  pdata.postTitle="实现strStr";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
 
   var l_header=document.getElementById("l_header");
   
-  l_header.classList.add("show");
+  l_header.classList.remove("show");
   
 </script>
 
